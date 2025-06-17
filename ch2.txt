@@ -1,3 +1,4 @@
+//to make new directory or folder
 PS C:\Users\kaumu\OneDrive\Desktop> mkdir newprac
 
 
@@ -10,6 +11,7 @@ d-----        17-06-2025  06:25 PM                newprac
 
 
 PS C:\Users\kaumu\OneDrive\Desktop> cd newprac
+//to make new file
 PS C:\Users\kaumu\OneDrive\Desktop\newprac> touch ch1.txt
 PS C:\Users\kaumu\OneDrive\Desktop\newprac> ls
 
@@ -21,8 +23,9 @@ Mode                 LastWriteTime         Length Name
 ----                 -------------         ------ ----
 -a---l        17-06-2025  06:26 PM              0 ch1.txt
 
-
+//to open a file on windows
 PS C:\Users\kaumu\OneDrive\Desktop\newprac> code ch1.txt
+//to initialse git
 PS C:\Users\kaumu\OneDrive\Desktop\newprac> git init
 Initialized empty Git repository in C:/Users/kaumu/OneDrive/Desktop/newprac/.git/
 PS C:\Users\kaumu\OneDrive\Desktop\newprac> ls -a
@@ -43,7 +46,7 @@ Mode                 LastWriteTime         Length Name
 ----                 -------------         ------ ----
 -a---l        17-06-2025  06:27 PM             11 ch1.txt
 
-
+//to see satus of git files : red means not uploaded , green means uploaded
 PS C:\Users\kaumu\OneDrive\Desktop\newprac> git status
 On branch main
 
@@ -54,6 +57,7 @@ Untracked files:
         ch1.txt
 
 nothing added to commit but untracked files present (use "git add" to track)
+//to add files in git
 PS C:\Users\kaumu\OneDrive\Desktop\newprac> git add ch1.txt
 PS C:\Users\kaumu\OneDrive\Desktop\newprac> git status     
 On branch main
@@ -64,6 +68,8 @@ Changes to be committed:
   (use "git rm --cached <file>..." to unstage)
         new file:   ch1.txt
 
+//to commit changes
+//-m "message" : means to give message in present tense about what you did it is really important 
 PS C:\Users\kaumu\OneDrive\Desktop\newprac> git commit -m "complete ch1" 
 Author identity unknown
 
@@ -78,12 +84,16 @@ to set your account's default identity.
 Omit --global to set the identity only in this repository.
 
 fatal: unable to auto-detect email address (got 'kaumu@Kaumudi.(none)')
+
+//this tells who is using git 
 PS C:\Users\kaumu\OneDrive\Desktop\newprac> git config --global user.email "kaumudi1204@gmail.com"
 PS C:\Users\kaumu\OneDrive\Desktop\newprac> git config --global user.name "Kaumudi Mishra"
 PS C:\Users\kaumu\OneDrive\Desktop\newprac> git commit -m "complete ch1"             
 [main (root-commit) 6634d8d] complete ch1
  1 file changed, 1 insertion(+)
  create mode 100644 ch1.txt
+
+// to see the activity and commits made at different times
 PS C:\Users\kaumu\OneDrive\Desktop\newprac> git log
 commit 6634d8db4f8423b24726e73caeb6566759a129cf (HEAD -> main)
 Author: Kaumudi Mishra <kaumudi1204@gmail.com>
@@ -103,7 +113,3 @@ Mode                 LastWriteTime         Length Name
 -a---l        17-06-2025  06:27 PM             11 ch1.txt
 -a---l        17-06-2025  06:35 PM              0 ch2.txt
 -a---l        17-06-2025  06:35 PM              0 ch3.txt
-
-
-PS C:\Users\kaumu\OneDrive\Desktop\newprac> code ch3.txt
-PS C:\Users\kaumu\OneDrive\Desktop\newprac> 
