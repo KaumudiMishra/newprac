@@ -1,158 +1,181 @@
-//to make new directory or folder
-PS C:\Users\kaumu\OneDrive\Desktop> mkdir newprac
+📄  GIT WORKFLOW NOTES (Windows PowerShell)  📄
+Save or print this plain‑text file for quick reference.
+────────────────────────────────────────────────────────
 
+1.  CREATE A NEW FOLDER & FILES
+    ----------------------------------------------------
+    > mkdir newprac          # make directory on Desktop
+    > cd newprac             # enter the folder
 
-    Directory: C:\Users\kaumu\OneDrive\Desktop
+    > touch ch1.txt          # create an empty file
+    > ls                     # list visible items
+    PowerShell tip: use  ls -Force  to show hidden files
+                           (‑a works in Bash, not here).
 
+2.  OPEN A FILE IN VS CODE
+    ----------------------------------------------------
+    > code ch1.txt           # launches VS Code with ch1.txt
 
-Mode                 LastWriteTime         Length Name
-----                 -------------         ------ ----
-d-----        17-06-2025  06:25 PM                newprac
+3.  INITIALISE A GIT REPOSITORY
+    ----------------------------------------------------
+    > git init               # creates .git folder
 
+4.  CHECK FILE STATUS
+    ----------------------------------------------------
+    > git status
+      • **red**  = untracked / modified, not staged  
+      • **green**= staged, ready to commit
 
-PS C:\Users\kaumu\OneDrive\Desktop> cd newprac
-//to make new file
-PS C:\Users\kaumu\OneDrive\Desktop\newprac> touch ch1.txt
-PS C:\Users\kaumu\OneDrive\Desktop\newprac> ls
+5.  STAGE & COMMIT A SINGLE FILE
+    ----------------------------------------------------
+    > git add ch1.txt        # move ch1.txt to staging area
+    > git commit -m "complete ch1"
+      └─ First commit message (imperative, present‑tense)
 
+    ✱ If Git asks for your identity:
+      > git config --global user.name  "Your Name"
+      > git config --global user.email "you@example.com"
 
-    Directory: C:\Users\kaumu\OneDrive\Desktop\newprac
+6.  VIEW COMMIT HISTORY
+    ----------------------------------------------------
+    > git log                # shows SHA, author, date, message
 
+7.  ADD MORE FILES & STAGE EVERYTHING AT ONCE
+    ----------------------------------------------------
+    > touch ch2.txt ch3.txt ch4.txt democh.txt
+    > git status             # see new + modified files
+    > git add .              # “.” stages ALL changes
+    > git commit -m "add ch2‑ch4 and demo file"
 
-Mode                 LastWriteTime         Length Name
-----                 -------------         ------ ----
--a---l        17-06-2025  06:26 PM              0 ch1.txt
+8.  CONNECT TO A REMOTE REPOSITORY (GitHub)
+    ----------------------------------------------------
+    Syntax:   git remote add <name> <URL>
+    Example:
+      > git remote add origin https://github.com/KaumudiMishra/newprac.git
 
-//to open a file on windows
-PS C:\Users\kaumu\OneDrive\Desktop\newprac> code ch1.txt
-//to initialse git
-PS C:\Users\kaumu\OneDrive\Desktop\newprac> git init
-Initialized empty Git repository in C:/Users/kaumu/OneDrive/Desktop/newprac/.git/
-PS C:\Users\kaumu\OneDrive\Desktop\newprac> ls -a
-Get-ChildItem : Parameter cannot be processed because the parameter name 'a' is ambiguous. Possible matches include: -Attributes -Directory -File -Hidden -ReadOnly -System.
-At line:1 char:4
-+ ls -a
-+    ~~
-    + CategoryInfo          : InvalidArgument: (:) [Get-ChildItem], ParameterBindingException
-    + FullyQualifiedErrorId : AmbiguousParameter,Microsoft.PowerShell.Commands.GetChildItemCommand
+9.  PUSH FIRST TIME & SET UPSTREAM
+    ----------------------------------------------------
+    > git push -u origin main
+      • -u links local *main* branch to remote *origin/main*
+      • Subsequent pushes can be just:  git push
 
-PS C:\Users\kaumu\OneDrive\Desktop\newprac> ls
+────────────────────────────────────────────────────────
+QUICK COMMAND CHEAT‑SHEET
+────────────────────────────────────────────────────────
+mkdir <dir>              create folder
+cd <dir>                 change directory
+touch <file>             create empty file
+ls / ls -Force           list files (‑Force shows hidden)
+code <file>              open file in VS Code
+git init                 start a repo
+git status               view file states
+git add <file> | .       stage file(s)
+git commit -m "msg"      commit staged changes
+git log                  show history
+git config --global ...  set username / email
+git remote add origin URL connect remote
+git push -u origin main  push + set upstream
+git push                 push again later
+────────────────────────────────────────────────────────
+Keep this sheet handy while working in PowerShell + Git!
 
+📝 GITIGNORE - SIMPLE NOTES
 
-    Directory: C:\Users\kaumu\OneDrive\Desktop\newprac
+WHAT IS .gitignore?
 
+- A special file used by Git to ignore certain files/folders.
+- Helps prevent accidental upload of:
+  • Secrets (API keys, passwords)
+  • System files (like .DS_Store)
+  • Temporary or config files
+  • Large folders like node_modules
 
-Mode                 LastWriteTime         Length Name
-----                 -------------         ------ ----
--a---l        17-06-2025  06:27 PM             11 ch1.txt
+---------------------------
 
-//to see satus of git files : red means not uploaded , green means uploaded
-PS C:\Users\kaumu\OneDrive\Desktop\newprac> git status
-On branch main
+HOW TO CREATE A PROJECT AND USE .gitignore
 
-No commits yet
+1. Open Terminal
+2. Go to Desktop:
+   cd Desktop
 
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-        ch1.txt
+3. Make new project folder:
+   mkdir Project
+   cd Project
 
-nothing added to commit but untracked files present (use "git add" to track)
-//to add files in git
-PS C:\Users\kaumu\OneDrive\Desktop\newprac> git add ch1.txt
-PS C:\Users\kaumu\OneDrive\Desktop\newprac> git status     
-On branch main
+4. Create example files:
+   touch file1.txt file2.txt file3.txt secrets.txt
 
-No commits yet
+5. Create .gitignore file:
+   touch .gitignore
 
-Changes to be committed:
-  (use "git rm --cached <file>..." to unstage)
-        new file:   ch1.txt
+6. Open .gitignore:
+   code .gitignore  (or use any text editor)
 
-//to commit changes
-//-m "message" : means to give message in present tense about what you did it is really important 
-PS C:\Users\kaumu\OneDrive\Desktop\newprac> git commit -m "complete ch1" 
-Author identity unknown
+---------------------------
 
-*** Please tell me who you are.
+WHAT TO WRITE IN .gitignore?
 
-Run
+# Comments start with #
+# Ignore secret files
+secrets.txt
 
-  git config --global user.email "you@example.com"
-  git config --global user.name "Your Name"
+# Ignore macOS settings file
+.DS_Store
 
-to set your account's default identity.
-Omit --global to set the identity only in this repository.
+# Ignore a folder
+node_modules/
 
-fatal: unable to auto-detect email address (got 'kaumu@Kaumudi.(none)')
+# Ignore all .log files
+*.log
 
-//this tells who is using git 
-PS C:\Users\kaumu\OneDrive\Desktop\newprac> git config --global user.email "kaumudi1204@gmail.com"
-PS C:\Users\kaumu\OneDrive\Desktop\newprac> git config --global user.name "Kaumudi Mishra"
-PS C:\Users\kaumu\OneDrive\Desktop\newprac> git commit -m "complete ch1"             
-[main (root-commit) 6634d8d] complete ch1
- 1 file changed, 1 insertion(+)
- create mode 100644 ch1.txt
+---------------------------
 
-// to see the activity and commits made at different times
-PS C:\Users\kaumu\OneDrive\Desktop\newprac> git log
-commit 6634d8db4f8423b24726e73caeb6566759a129cf (HEAD -> main)
-Author: Kaumudi Mishra <kaumudi1204@gmail.com>
-Date:   Tue Jun 17 18:33:32 2025 +0530
+COMMON EXAMPLE:
+For a Node.js project:
+-----------------------
+node_modules/
+.env
+.DS_Store
+*.log
 
-    complete ch1
-PS C:\Users\kaumu\OneDrive\Desktop\newprac>  touch ch2.txt
-PS C:\Users\kaumu\OneDrive\Desktop\newprac> touch ch3.txt
-PS C:\Users\kaumu\OneDrive\Desktop\newprac> ls
+---------------------------
 
+GIT COMMANDS WORKFLOW
 
-    Directory: C:\Users\kaumu\OneDrive\Desktop\newprac
+1. Initialize Git:
+   git init
 
+2. Add all files:
+   git add .
 
-Mode                 LastWriteTime         Length Name
-----                 -------------         ------ ----
--a---l        17-06-2025  06:27 PM             11 ch1.txt
--a---l        17-06-2025  06:35 PM              0 ch2.txt
--a---l        17-06-2025  06:35 PM              0 ch3.txt
+3. See what's staged:
+   git status
 
-//here we add two more files and this "git add ." helps to add all the unstaged files to the staging area altogether
-PS C:\Users\kaumu\OneDrive\Desktop\newprac> touch ch4.txt
-PS C:\Users\kaumu\OneDrive\Desktop\newprac> touch democh.txt
-PS C:\Users\kaumu\OneDrive\Desktop\newprac> git status
-On branch main
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-        modified:   ch2.txt
+⚠️ If secrets.txt or other unwanted files show up, fix your .gitignore first!
 
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-        ch4.txt
-        democh.txt
+4. To unstage everything (before commit):
+   git rm --cached -r .
 
-no changes added to commit (use "git add" and/or "git commit -a")
-PS C:\Users\kaumu\OneDrive\Desktop\newprac> git add . 
-PS C:\Users\kaumu\OneDrive\Desktop\newprac> git status
-On branch main
-Changes to be committed:
-  (use "git restore --staged <file>..." to unstage)
-        modified:   ch2.txt
-        new file:   ch4.txt
-        new file:   democh.txt
+5. Add again (now gitignore will be respected):
+   git add .
 
-// to connect the github repo to local repo we use this
-// git remote add <name> <url>
-// to push we use : git push -u <name> <branchname>
-PS C:\Users\kaumu\OneDrive\Desktop\newprac> git remote add origin https://github.com/KaumudiMishra/newprac.git
-PS C:\Users\kaumu\OneDrive\Desktop\newprac> git push -u origin main
-info: please complete authentication in your browser...
-Enumerating objects: 11, done.
-Counting objects: 100% (11/11), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (7/7), done.
-Writing objects: 100% (11/11), 2.18 KiB | 745.00 KiB/s, done.
-Total 11 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
-remote: Resolving deltas: 100% (1/1), done.
-To https://github.com/KaumudiMishra/newprac.git
- * [new branch]      main -> main
-branch 'main' set up to track 'origin/main'.
-PS C:\Users\kaumu\OneDrive\Desktop\newprac> 
+6. Commit:
+   git commit -m "Initial commit"
+
+---------------------------
+
+TIPS
+
+✔ Always use lowercase: `.gitignore` (name matters!)
+✔ Use `ls -a` to see hidden files
+✔ Check status before committing with `git status`
+✔ Use prebuilt gitignore templates from:
+   https://github.com/github/gitignore
+
+---------------------------
+
+WHY IS IT IMPORTANT?
+
+- Protects your sensitive data
+- Keeps your repo clean
+- Avoids uploading unnecessary files to GitHub
