@@ -79,6 +79,8 @@ git push                 push again later
 ────────────────────────────────────────────────────────
 Keep this sheet handy while working in PowerShell + Git!
 
+
+----------------------------------------------------------------------------------------
 📝 GITIGNORE - SIMPLE NOTES
 
 WHAT IS .gitignore?
@@ -180,7 +182,7 @@ WHY IS IT IMPORTANT?
 - Keeps your repo clean
 - Avoids uploading unnecessary files to GitHub
 
-
+---------------------------------------------------------------------------------------------------
 Lesson 2: Cloning GitHub Repositories and Running Projects Locally
 ==================================================================
 
@@ -256,10 +258,94 @@ Bonus: Open-Source Contributions for Beginners
   - AncientBeast – A strategy game.
   - Brave Browser – A privacy-focused web browser.
 
-Coming Up Next
----------------
-- You'll learn about:
-  - Branches
-  - Pull Requests
-  - Merging code
+--------------------------------------------------------------------------------------------
+📄  GIT BRANCHING NOTES (Windows PowerShell)  📄
+Save or print this plain‑text file for quick reference.
+────────────────────────────────────────────────────────
+
+WHAT IS BRANCHING?
+──────────────────
+• Branching lets you work on new ideas/features without changing the main project.
+• You can experiment safely and merge only when ready.
+• Main branch = stable version
+• Other branches = feature updates, bug fixes, experiments
+
+1.  CREATE A NEW BRANCH
+    ----------------------------------------------------
+    > git branch alien-plot     # creates new branch
+    > git branch                # shows all branches
+      • * = current branch
+
+2.  SWITCH TO A BRANCH
+    ----------------------------------------------------
+    > git checkout alien-plot   # switch to that branch
+    > git checkout -b alien-plot
+      # shortcut: create + switch in 1 step
+
+3.  MAKE CHANGES AND COMMIT
+    ----------------------------------------------------
+    > code ch1.txt              # open and edit file
+    > git add .                 # stage all changes
+    > git commit -m "alien theme added to ch1 and ch2"
+
+4.  SWITCH BACK TO MAIN
+    ----------------------------------------------------
+    > git checkout main         # return to main branch
+
+5.  CONTINUE WORKING ON MAIN
+    ----------------------------------------------------
+    > touch chapter4.txt
+    > code chapter4.txt         # write more content
+    > git add .
+    > git commit -m "add chapter 4"
+
+6.  MERGE BRANCH INTO MAIN
+    ----------------------------------------------------
+    > git checkout main         # make sure you're on main
+    > git merge alien-plot      # merge alien branch into main
+
+    ⚠️ If Vim opens:
+      Type:  :q!                # to quit without editing merge message
+
+7.  PUSH CHANGES TO GITHUB
+    ----------------------------------------------------
+    > git push -u origin main   # push main branch to GitHub
+
+8.  VIEW HISTORY
+    ----------------------------------------------------
+    > git log                   # view commits
+    > git log --oneline --graph --all
+      • view visual commit tree
+
+9.  DELETE BRANCH (optional)
+    ----------------------------------------------------
+    > git branch -d alien-plot  # delete local branch after merge
+
+────────────────────────────────────────────────────────
+QUICK COMMAND CHEAT‑SHEET
+────────────────────────────────────────────────────────
+git branch <name>         create new branch
+git branch                list branches
+git checkout <name>       switch to branch
+git checkout -b <name>    create + switch
+git add .                 stage all changes
+git commit -m "msg"       save changes
+git merge <branch>        merge into current branch
+git log                   commit history
+git push -u origin main   push to GitHub
+git branch -d <branch>    delete branch (after merge)
+────────────────────────────────────────────────────────
+
+📌 WHY USE BRANCHES?
+
+✔️ Keep main code clean
+✔️ Try new features safely
+✔️ Collaborate without conflict
+✔️ Merge only tested code
+✔️ Work in parallel with teammates
+
+────────────────────────────────────────────────────────
+🧪 TIP: Practice by creating a small story repo and 
+make alien/fantasy/romantic versions using branches!
+────────────────────────────────────────────────────────
 
