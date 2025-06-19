@@ -50,7 +50,7 @@ Save or print this plain‑text file for quick reference.
 8.  CONNECT TO A REMOTE REPOSITORY (GitHub)
     ----------------------------------------------------
     Syntax:   git remote add <name> <URL>
-    Example:
+    Exampl
       > git remote add origin https://github.com/KaumudiMishra/newprac.git
 
 9.  PUSH FIRST TIME & SET UPSTREAM
@@ -179,3 +179,87 @@ WHY IS IT IMPORTANT?
 - Protects your sensitive data
 - Keeps your repo clean
 - Avoids uploading unnecessary files to GitHub
+
+
+Lesson 2: Cloning GitHub Repositories and Running Projects Locally
+==================================================================
+
+What is Cloning?
+----------------
+- Cloning is copying a GitHub repository to your local computer.
+- This includes all files and the entire commit history.
+- Command: 
+  git clone <repository-URL>
+
+Why Clone a Repository?
+------------------------
+- To get your own copy of a project.
+- You can:
+  - Customize or add features.
+  - Fix bugs.
+  - Study and learn from the code.
+  - Self-host tools like games or apps.
+
+Example 1: Running the QuakeJS Game
+------------------------------------
+1. Clone the repository:
+   git clone https://github.com/quakejs/quakejs.git
+
+2. Move into the folder:
+   cd quakejs
+
+3. Install required packages:
+   npm install
+
+4. Set up the content server (use command from README):
+   npm run <command>
+
+5. Run the game server:
+   node <start-command>
+
+6. Open in browser:
+   http://localhost:8080
+
+Example 2: Running Word Mastermind (Wordle Clone)
+--------------------------------------------------
+1. Clone the repository:
+   git clone https://github.com/<username>/word-mastermind.git
+
+2. Move into the folder:
+   cd word-mastermind
+
+3. Install dependencies:
+   npm install
+
+4. Start the app:
+   npm start
+
+5. Open in browser:
+   http://localhost:3000
+
+6. Explore and modify:
+   - dict/ folder contains the word list.
+   - src/ folder contains the game logic.
+   - You can customize text, colors, gameplay, etc.
+
+Key Takeaways
+--------------
+- 'git clone' downloads a full project from GitHub.
+- You can run, modify, and learn from these open-source projects.
+- Studying real projects helps you become a better developer.
+
+Bonus: Open-Source Contributions for Beginners
+-----------------------------------------------
+- Check out this GitHub repo: https://github.com/MunGell/awesome-for-beginners
+- Contains beginner-friendly projects you can contribute to.
+- Some example projects:
+  - AncientBeast – A strategy game.
+  - Brave Browser – A privacy-focused web browser.
+
+Coming Up Next
+---------------
+- You'll learn about:
+  - Branches
+  - Pull Requests
+  - Merging code
+
